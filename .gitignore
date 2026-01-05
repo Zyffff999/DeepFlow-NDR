@@ -1,6 +1,6 @@
-data/
-pg_data/
-__pycache__/
+data/*
+!data/.gitkeep
+
 *.pth
 *.pt
 *.npz
