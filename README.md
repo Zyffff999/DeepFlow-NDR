@@ -10,7 +10,7 @@ Record a short demo (1-2 minutes) and place it at `assets/demo.mp4`.
 Add a thumbnail image at `assets/demo_thumb.png`, then use this link
 so the video is clickable on GitHub:
 
-[![Demo Video](assets/demo_thumb.png)](https://raw.githubusercontent.com/Zyffff999/DeepFlow-NDR/main/assets/demo.mp4)
+[![Demo Video](assets/demo_thumb.png)](https://github.com/Zyffff999/DeepFlow-NDR/blob/main/assets/demo.mp4)
 
 Notes:
 - Keep the file size small (for example, under 50MB).
