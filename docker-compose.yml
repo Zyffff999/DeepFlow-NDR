@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.backend
+    container_name: deepflow-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - CAVAD_CHECKPOINT=/app/data/checkpoints/cavad.pth
+      - PYTHONPATH=/app
+    volumes:
+      - ./configs:/app/configs
+      - ./data:/app/data
+      - ./src:/app/src
+    command: >
+      uvicorn src.api.server:app
+      --host 0.0.0.0
+      --port 8000
+
+  frontend:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.frontend
+    container_name: deepflow-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "8501:8501"
+    environment:
+      - DEEPFLOW_API_URL=http://backend:8000
+    volumes:
+      - ./app:/app/app
+      - ./configs:/app/configs

@@ -1,0 +1,12 @@
+data/
+pg_data/
+__pycache__/
+*.pth
+*.pt
+*.npz
+*.csv
+*.pcap
+*.pcapng
+*.log
+.env
+.venv/

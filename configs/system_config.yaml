@@ -1,0 +1,17 @@
+api_host: "0.0.0.0"
+api_port: 8000
+db_url: "postgresql://admin:123456@localhost:5432/network_flow_db"
+db_batch_size: 1000
+inference_store_results: false
+inference_use_db: false
+training_data_dir: "data/training"
+offline_pcap_path: "data/pcaps/infer/Thursday-cic.pcap"
+offline_checkpoint_path: "data/checkpoints/20251231_005756/checkpoints/best.pth"
+offline_reference_stats_path: "data/stats/reference_stats_cicids2017.pt"
+offline_benign_stats_path: null
+offline_top_k: 10
+checkpoints_dir: "data/checkpoints"
+stats_dir: "data/stats"
+training_batch_size: 1000
+
+

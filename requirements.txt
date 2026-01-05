@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+python-multipart
+
+nfstream
+numpy
+pandas
+PyYAML
+requests
+
+SQLAlchemy
+psycopg2-binary
+
+streamlit
+streamlit-autorefresh
+
+tqdm
