@@ -20,6 +20,35 @@ to open the GitHub Pages player:
 - Save results to CSV for offline analysis.
 - Optional database storage for flow history and metrics.
 
+## Architecture (visual)
+
+```mermaid
+flowchart LR
+  A[PCAP] --> B[NFStream + ETA Extractor]
+  B --> C1[Byte Matrix<br/>8x64 bytes]
+  B --> C2[Global Stats<br/>22D features]
+  C1 --> D[Tensorize]
+  C2 --> D
+  D --> E[Byte Encoder<br/>TCN/Embedding]
+  D --> F[Global MLP<br/>BatchNorm + Dense]
+  E --> G[Concat]
+  F --> G
+  G --> H[VAE Bottleneck]
+  H --> I[Decoder<br/>Reconstruct Bytes]
+  H --> J[Latent Scoring<br/>Mahalanobis]
+  I --> K[Recon Loss / Z-Score]
+  J --> K
+  K --> L[Results<br/>CSV / DB / UI]
+
+  subgraph Training Mode
+    A --> B
+    B --> T1[DB Storage]
+    T1 --> T2[Export NPZ]
+    T2 --> T3[Model Training]
+    T3 --> T4[Reference Stats + Threshold]
+  end
+```
+
 ## NDR-focused highlights
 
 - Feature engineering: curated global stats to enrich byte-level modeling with SOC signals.
