@@ -10,9 +10,7 @@ Record a short demo (1-2 minutes) and place it at `assets/demo.mp4`.
 Add a thumbnail image at `assets/demo_thumb.png`, then use this link
 so the video is clickable on GitHub:
 
-```md
 [![Demo Video](assets/demo_thumb.png)](assets/demo.mp4)
-```
 
 Notes:
 - Keep the file size small (for example, under 50MB).
