@@ -7,15 +7,16 @@ inference, and Streamlit for a lightweight UI.
 ## Demo video
 
 Record a short demo (1-2 minutes) and place it at `assets/demo.mp4`.
-GitHub will render the HTML video tag below directly in the README.
+Add a thumbnail image at `assets/demo_thumb.png`, then use this link
+so the video is clickable on GitHub:
 
-```html
-<video src="assets/demo.mp4" controls width="800"></video>
+```md
+[![Demo Video](assets/demo_thumb.png)](assets/demo.mp4)
 ```
 
 Notes:
 - Keep the file size small (for example, under 50MB).
-- If the player does not render, link the file from a GitHub Release instead.
+- If GitHub does not play the mp4, link the file from a GitHub Release instead.
 
 ## What it does
 
@@ -26,12 +27,30 @@ Notes:
 
 ## NDR-focused highlights
 
+- Feature engineering: curated global stats to enrich byte-level modeling with SOC signals.
 - SOC-friendly features: directional bytes/packets, timing stats, rate metrics, TCP flag counts for RCA.
 - Explainability hooks: top-contributing byte indices plus global stats per flow.
 - Noise-aware filtering: protocol whitelist + service blacklist + interaction quality checks.
 - Privacy-aware bytes: address fields are zeroed in the byte matrix before modeling.
 - Two-mode pipeline: training ingest/export for offline training, streaming inference for production.
 - Ops-ready outputs: per-run CSVs for easy triage or SIEM ingestion.
+
+### Feature engineering summary (22D global stats)
+
+The model consumes a compact, SOC-oriented feature set alongside bytes:
+
+- Basics: duration, total packets, total bytes, mean/std packet size
+- Extremes: min/max packet size to surface bursty or injected payloads
+- Timing: IAT mean/std to capture cadence and periodicity
+- Directionality: src/dst bytes + packet ratios for bidirectional behavior
+- Rates: packets/sec, bytes/sec for volumetric patterns
+- TCP signals: SYN/RST/PSH/FIN counts + window mean (when available)
+- Protocol identity: is_tcp / is_udp flags
+
+## Research note
+
+More technical details and evaluations are documented in the submitted paper
+**CONEXT**, which will be released publicly soon.
 
 ## Repository layout (high level)
 
