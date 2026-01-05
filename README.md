@@ -6,15 +6,12 @@ inference, and Streamlit for a lightweight UI.
 
 ## Demo video
 
-Record a short demo (1-2 minutes) and place it at `assets/demo.mp4`.
+Record a short demo (1-2 minutes) and place it at `docs/demo.mp4`.
 Add a thumbnail image at `assets/demo_thumb.png`, then use this link
-so the video is clickable on GitHub:
+to open the GitHub Pages player:
 
-[![Demo Video](assets/demo_thumb.png)](https://github.com/Zyffff999/DeepFlow-NDR/blob/main/assets/demo.mp4)
+[![Demo Video](assets/demo_thumb.png)](https://zyffff999.github.io/DeepFlow-NDR/)
 
-Notes:
-- Keep the file size small (for example, under 50MB).
-- If GitHub does not play the mp4, link the file from a GitHub Release instead.
 
 ## What it does
 
