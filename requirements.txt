@@ -7,6 +7,7 @@ numpy
 pandas
 PyYAML
 requests
+cffi
 
 SQLAlchemy
 psycopg2-binary
